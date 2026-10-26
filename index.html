@@ -3,91 +3,157 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>My Dream Girl ♡</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#fff1f2;color:#714657;font-family:Arial,sans-serif}
+body{margin:0;background:#fff2f4;color:#75475a;font-family:Arial,sans-serif}
 header{text-align:center;padding:20px;background:#fffaf7}
-header h1{font-family:Georgia,serif;font-style:italic;color:#bd7b91;margin:0;font-size:36px}
-header p{margin:7px;font-size:13px}
-main{max-width:1100px;margin:auto;padding:15px;display:grid;grid-template-columns:1fr 330px;gap:15px}
-.panel{background:#fffaf7;border:1px solid #f0d9df;border-radius:20px;padding:15px;box-shadow:0 7px 24px #89546b0c}
-.scene{height:490px;position:relative;overflow:hidden;border-radius:16px;background:linear-gradient(#efdce9 0%,#f9e3e0 65%,#d6a7b6 65%);display:flex;justify-content:center;align-items:flex-end}
-.window{position:absolute;right:24px;top:25px;width:100px;height:145px;border:7px solid #b98c9b;background:linear-gradient(#a7bfd8,#fbe2e1)}
-.window:after{content:"";position:absolute;left:50%;height:100%;border-left:4px solid #b98c9b}
-.plant{position:absolute;left:16px;bottom:75px;font-size:44px}
-.bed{position:absolute;bottom:0;width:100%;height:95px;background:#f8e9e8;border-radius:45% 45% 0 0}
-.tag{position:absolute;top:12px;left:12px;background:#fffaf0e8;padding:9px 13px;border-radius:30px;font-size:12px;z-index:8}
-.doll{position:absolute;bottom:26px;width:240px;height:420px;z-index:3;transition:transform .3s}
-.hair{position:absolute;top:0;left:38px;width:164px;height:208px;border-radius:48% 48% 42% 42%;background:repeating-radial-gradient(ellipse at 45% 30%,#302125 0 7px,#5e3b34 8px 12px,#24191d 13px 17px);z-index:1}
-.face{position:absolute;top:32px;left:76px;width:88px;height:106px;border-radius:46% 46% 48% 48%;background:#e5b096;z-index:3}
-.fringe{position:absolute;top:17px;left:71px;width:99px;height:55px;border-radius:60% 60% 40% 35%;background:repeating-radial-gradient(ellipse at 45% 70%,#302125 0 7px,#5e3b34 8px 12px,#24191d 13px 17px);z-index:4}
-.ear{position:absolute;top:78px;width:13px;height:19px;border-radius:50%;background:#d79d83;z-index:2}
-.ear.l{left:67px}.ear.r{left:160px}
-.eye{position:absolute;top:79px;width:10px;height:6px;border-radius:50%;background:#39232c;z-index:5}
-.eye.l{left:96px}.eye.r{left:137px}
-.blush{position:absolute;top:93px;width:18px;height:9px;border-radius:50%;background:#e58d9b70;z-index:5}
-.blush.l{left:88px}.blush.r{left:140px}
-.nose{position:absolute;top:87px;left:118px;height:13px;border-left:2px solid #c58775;z-index:5}
-.mouth{position:absolute;top:111px;left:110px;width:23px;height:8px;border-radius:50%;background:#b85d75;z-index:5}
-.neck{position:absolute;top:128px;left:104px;width:34px;height:35px;background:#dba58b;z-index:2}
-.body{position:absolute;top:151px;left:65px;width:110px;height:122px;background:var(--dress,#f4cbd8);border-radius:30px 30px 12px 12px;z-index:3;border:2px solid #ffffff90}
-.arm{position:absolute;top:165px;width:24px;height:100px;border-radius:20px;background:#e0ab91;z-index:2}
-.arm.l{left:48px;transform:rotate(8deg)}.arm.r{left:167px;transform:rotate(-8deg)}
-.leg{position:absolute;top:261px;width:42px;height:125px;border-radius:12px 12px 20px 20px;background:#e0ab91;z-index:2}
-.leg.l{left:78px}.leg.r{left:120px}
-.speech{position:absolute;z-index:9;top:57px;left:50%;transform:translateX(-50%);width:max-content;max-width:88%;padding:11px 16px;background:white;border:2px solid #f1c5d1;border-radius:20px;color:#bd6583;font-weight:bold;text-align:center;box-shadow:0 5px 18px #7c45541a;animation:pop .35s}
-@keyframes pop{from{transform:translateX(-50%) scale(.6)}to{transform:translateX(-50%) scale(1)}}
-.actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
-button{border:0;border-radius:12px;padding:11px;background:#c78399;color:white;font-weight:bold;cursor:pointer;transition:.15s}
-button:hover{filter:brightness(1.06);transform:translateY(-1px)}
+h1{font:italic 36px Georgia;color:#bd7d96;margin:0}
+header p{font-size:13px}
+.app{max-width:1050px;margin:auto;padding:14px;display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:14px}
+.panel{background:#fffaf7;border:1px solid #f0d8df;border-radius:20px;padding:14px}
+.scene{height:510px;position:relative;overflow:hidden;border-radius:16px;background:linear-gradient(#f3dce9 0%,#fce8e2 70%,#d5a9b7 70%);display:flex;justify-content:center;align-items:flex-end}
+.window{position:absolute;right:22px;top:25px;width:100px;height:140px;border:7px solid #bc929e;background:linear-gradient(#a9bfd6,#fbe5e0)}
+.window:after{content:"";position:absolute;left:50%;height:100%;border-left:4px solid #bc929e}
+.plant{position:absolute;bottom:75px;left:15px;font-size:43px}
+.bed{position:absolute;bottom:0;width:100%;height:90px;background:#f9e9e9;border-radius:40% 40% 0 0}
+.tag{position:absolute;top:12px;left:12px;padding:9px 12px;border-radius:20px;background:#fffaf0e8;font-size:12px;z-index:5}
+.speech{position:absolute;top:55px;left:50%;transform:translateX(-50%);z-index:6;background:white;border:2px solid #f0c6d4;border-radius:20px;padding:11px 15px;text-align:center;color:#bd6685;font-size:13px;font-weight:bold;width:max-content;max-width:90%;box-shadow:0 5px 15px #80505b12}
+#girl{width:min(82%,340px);height:auto;max-height:420px;position:relative;z-index:3;overflow:visible;filter:drop-shadow(0 7px 5px #8754641a);transition:transform .3s}
+.blush{opacity:0;transition:opacity .25s}
+.shy .blush{opacity:1}
+.shy .eyes-open{opacity:0}
+.eyes-shy{opacity:0}
+.shy .eyes-shy{opacity:1}
+.shy #girl{animation:shy .6s ease-in-out 2 alternate}
+.hearts{position:absolute;z-index:7;top:130px;left:50%;transform:translateX(-50%);font-size:27px;white-space:nowrap;pointer-events:none}
+.hearts span{display:inline-block;animation:float 1.3s ease-in-out infinite alternate}
+.hearts span:nth-child(2){animation-delay:.3s}.hearts span:nth-child(3){animation-delay:.6s}
+@keyframes shy{from{transform:rotate(-2deg)}to{transform:rotate(2deg) translateY(-5px)}}
+@keyframes float{to{transform:translateY(-20px) rotate(12deg)}}
+.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+button{border:0;border-radius:12px;padding:10px 12px;background:#c78399;color:white;font-weight:bold;cursor:pointer}
+button:hover{filter:brightness(1.06)}
 .actions button{flex:1}
-h3{font-size:15px;margin:3px 0 12px}
-.categories{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px}
-.categories button{flex:1;padding:8px 5px;font-size:11px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
-.item{min-height:76px;background:#fff0f2;color:#75495b;border:1px solid #f0d5dc;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;font-size:11px}
+h3{font-size:15px;margin:2px 0 12px}
+.categories{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px}
+.categories button{flex:1;font-size:11px;padding:8px 5px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.item{background:#fff0f3;color:#75475a;border:1px solid #f0d5dc;min-height:68px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;font-size:11px}
 .item span{font-size:25px}
 .item.selected{border:2px solid #c78399;background:#fbe1e7}
-.section{border-bottom:1px solid #f0dfe3;padding-bottom:17px;margin-bottom:17px}
-.colors{display:flex;gap:10px;flex-wrap:wrap}
-.color{width:30px;height:30px;padding:0;border-radius:50%;border:3px solid white;box-shadow:0 0 0 1px #d9b8c2}
+.section{padding-bottom:16px;margin-bottom:16px;border-bottom:1px solid #f0dfe3}
+.colors{display:flex;gap:9px;flex-wrap:wrap}
+.color{width:29px;height:29px;border-radius:50%;padding:0;border:3px solid white;box-shadow:0 0 0 1px #d9b8c2}
 footer{text-align:center;padding:20px;color:#b77890;font-family:Georgia,serif;font-style:italic}
-@media(max-width:760px){main{grid-template-columns:1fr;padding:9px}.scene{height:460px}.panel{padding:11px}header h1{font-size:29px}}
+@media(max-width:740px){.app{grid-template-columns:1fr;padding:8px}.scene{height:470px}h1{font-size:30px}}
 </style>
 </head>
 <body>
 <header>
 <h1>My Dream Girl ♡</h1>
-<p>Dress Up · Makeup · Hairstyles · Photo Studio ✨</p>
+<p>Dress Up · Makeup · Hair · Sweet Moments ✨</p>
 </header>
 
-<main>
+<main class="app">
 <section class="panel">
 <div class="scene">
 <div class="window"></div><div class="plant">🪴</div><div class="bed"></div>
-<div class="tag" id="look">Cozy Teddy Pajamas 🧸</div>
-<div class="speech" id="speech">Hiiii, bestie!! Let's get cute! 💗</div>
+<div class="tag" id="outfitLabel">Cozy Teddy Pajamas 🧸</div>
+<div class="speech" id="speech">Hiii, bestie!! Let's get cute! 💗</div>
+<div class="hearts" id="hearts" hidden><span>💕</span><span>💗</span><span>💖</span></div>
 
-<div class="doll" id="doll">
-<div class="hair" id="hair"></div>
-<div class="ear l"></div><div class="ear r"></div>
-<div class="face"></div><div class="fringe" id="fringe"></div>
-<div class="eye l"></div><div class="eye r"></div>
-<div class="blush l"></div><div class="blush r"></div>
-<div class="nose"></div><div class="mouth" id="mouth"></div>
-<div class="neck"></div>
-<div class="arm l"></div><div class="arm r"></div>
-<div class="body" id="body"></div>
-<div class="leg l"></div><div class="leg r"></div>
-</div>
+<!-- One complete SVG character, not separate CSS body blocks -->
+<svg id="girl" viewBox="0 0 300 410" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Curly-haired fashion girl">
+<defs>
+ <linearGradient id="skin" x1="0" x2="1">
+  <stop offset="0" stop-color="#c98770"/>
+  <stop offset=".48" stop-color="#f0c1a5"/>
+  <stop offset="1" stop-color="#d69b80"/>
+ </linearGradient>
+ <linearGradient id="hairColor" x1="0" y1="0" x2="1" y2="1">
+  <stop stop-color="#24191d"/><stop offset=".45" stop-color="#654136"/><stop offset=".7" stop-color="#302023"/><stop offset="1" stop-color="#754a3c"/>
+ </linearGradient>
+ <linearGradient id="fabric" x1="0" y1="0" x2="1" y2="1">
+  <stop stop-color="#fff0f0"/><stop offset="1" stop-color="#e9b6c7"/>
+ </linearGradient>
+</defs>
+
+<!-- Long curly hair behind the body -->
+<path d="M76 112 C47 75 62 20 116 22 C139 4 175 15 192 30 C236 24 251 75 228 113
+ C248 143 232 191 217 212 L82 212 C59 187 52 150 76 112Z" fill="url(#hairColor)"/>
+<g fill="none" stroke-linecap="round" stroke-width="12">
+ <path d="M79 62 C48 72 84 93 67 110 S85 145 67 161 S81 190 85 207" stroke="#4b302a"/>
+ <path d="M96 39 C73 57 104 76 88 94 S104 126 88 145 S104 177 95 199" stroke="#79503d"/>
+ <path d="M120 30 C102 48 132 66 112 83 S132 117 114 134 S131 170 119 198" stroke="#392527"/>
+ <path d="M144 27 C126 48 157 61 138 83 S157 116 141 139 S158 173 145 202" stroke="#79503d"/>
+ <path d="M170 31 C150 50 181 70 164 89 S183 124 164 146 S183 180 172 204" stroke="#392527"/>
+ <path d="M194 43 C176 62 209 80 190 101 S209 132 191 155 S208 184 197 205" stroke="#79503d"/>
+ <path d="M216 67 C196 84 226 103 210 121 S226 153 211 171 S221 192 218 204" stroke="#392527"/>
+</g>
+
+<!-- Neck, arms and petite body -->
+<path d="M128 132 L127 161 Q150 180 173 158 L171 130Z" fill="url(#skin)"/>
+<path d="M91 184 Q96 159 124 158 L150 179 L176 158 Q202 161 211 187
+ L229 270 Q231 285 214 288 L86 288 Q69 282 74 267Z" fill="url(#fabric)" stroke="#fff7f6" stroke-width="3"/>
+<path d="M93 184 Q77 208 79 249 L87 280 Q92 290 101 282 L105 245 L119 194Z" fill="url(#skin)"/>
+<path d="M199 184 Q218 208 214 249 L206 280 Q201 290 192 282 L188 245 L175 194Z" fill="url(#skin)"/>
+
+<!-- Pajama collar and buttons -->
+<path id="collar" d="M125 160 L148 182 L136 202 L114 170Z M174 160 L151 182 L164 202 L185 170Z" fill="#fff9f5" stroke="#e9c5cd" stroke-width="2"/>
+<path d="M150 182 L150 281" stroke="#fff8f4" stroke-width="2"/>
+<g fill="#cf879e"><circle cx="150" cy="211" r="2.7"/><circle cx="150" cy="231" r="2.7"/><circle cx="150" cy="251" r="2.7"/></g>
+
+<!-- Hands -->
+<path d="M85 275 Q77 287 86 299 Q95 306 101 294 L101 280Z" fill="url(#skin)"/>
+<path d="M206 275 Q214 287 205 299 Q196 306 190 294 L190 280Z" fill="url(#skin)"/>
+
+<!-- Legs -->
+<path d="M91 282 Q119 293 147 284 L145 357 Q143 373 125 374 L112 373 Q98 370 98 355Z" fill="url(#skin)"/>
+<path d="M153 284 Q181 293 207 282 L200 355 Q199 370 181 374 L169 373 Q155 370 155 355Z" fill="url(#skin)"/>
+<path d="M99 350 Q121 358 145 351 L145 369 Q119 383 98 368Z" fill="#f8e7e8"/>
+<path d="M155 351 Q178 358 202 350 L201 368 Q178 383 155 369Z" fill="#f8e7e8"/>
+
+<!-- Face and ears -->
+<ellipse cx="83" cy="94" rx="12" ry="19" fill="url(#skin)"/>
+<ellipse cx="217" cy="94" rx="12" ry="19" fill="url(#skin)"/>
+<path d="M86 69 Q88 34 150 34 Q212 34 214 69 L207 112 Q199 147 150 151 Q101 147 93 112Z" fill="url(#skin)"/>
+
+<!-- Front curls -->
+<path d="M85 81 C70 42 101 17 128 31 C142 9 168 23 177 32 C205 21 226 47 214 81
+ C199 68 199 53 184 51 C171 68 161 60 150 47 C137 66 119 56 110 48 C103 62 99 74 85 81Z" fill="url(#hairColor)"/>
+<g fill="none" stroke="#79503d" stroke-width="7" stroke-linecap="round">
+ <path d="M99 51 Q84 65 102 72"/>
+ <path d="M126 34 Q108 49 129 58"/>
+ <path d="M153 34 Q138 48 158 56"/>
+ <path d="M181 38 Q165 52 185 60"/>
+ <path d="M201 49 Q187 63 203 72"/>
+</g>
+
+<!-- Eyes: open and shy expressions -->
+<g class="eyes-open" fill="#38252a">
+ <ellipse cx="124" cy="91" rx="7" ry="9"/>
+ <ellipse cx="176" cy="91" rx="7" ry="9"/>
+ <circle cx="126" cy="88" r="2.3" fill="white"/>
+ <circle cx="178" cy="88" r="2.3" fill="white"/>
+</g>
+<g class="eyes-shy" fill="none" stroke="#513039" stroke-width="3" stroke-linecap="round">
+ <path d="M112 92 Q124 103 136 92"/>
+ <path d="M164 92 Q176 103 188 92"/>
+</g>
+<path d="M113 80 Q124 75 135 81 M165 81 Q176 75 187 80" stroke="#57362f" stroke-width="3" fill="none" stroke-linecap="round"/>
+<ellipse class="blush" cx="111" cy="109" rx="15" ry="8" fill="#ed8298"/>
+<ellipse class="blush" cx="189" cy="109" rx="15" ry="8" fill="#ed8298"/>
+<path d="M147 97 Q142 109 150 110" fill="none" stroke="#bd806d" stroke-width="2" stroke-linecap="round"/>
+<path d="M138 120 Q150 130 162 120 Q150 125 138 120Z" fill="#b85d76" stroke="#a64e68" stroke-width="1"/>
+</svg>
 </div>
 
 <div class="actions">
 <button onclick="randomOutfit()">✨ Dress Me!</button>
-<button onclick="kiss()">💋 Kiss</button>
-<button onclick="nextPose()">📸 Strike a Pose</button>
+<button onclick="kiss()">💋 Kiss Me</button>
+<button onclick="nextPose()">📸 Change Pose</button>
 <button onclick="resetGame()">↻ Reset</button>
 </div>
 </section>
@@ -184,7 +250,7 @@ let current=clothes[0],cat='all',makeup='lips',pose=1;
 const $=id=>document.getElementById(id);
 const comments=[
 "OMG, I LOVE ITTT!! 💗","THANK YOUUU, BABE!! 🥹💕",
-"WOWWWWW!! I'm obsessed!! ✨","STOPPP, THIS IS SO CUTE!! 🎀",
+"WOWWWWW!! I'M OBSESSED!! ✨","STOPPP, THIS IS SO CUTE!! 🎀",
 "YOU GET ME SO WELL!! 😭💖","BESTIE, YOU ATE!! 💅",
 "I FEEL SO PRETTY!! 🩷","THIS IS LITERALLY PERFECT!! 🌸",
 "OKAYYY, FASHION ICON!! 👑","AHHHH, MY NEW FAVOURITE!! 💋",
@@ -194,12 +260,10 @@ const comments=[
 ];
 function say(text){
 $('speech').textContent=text;
-$('speech').style.animation='none';
-void $('speech').offsetWidth;
-$('speech').style.animation='pop .35s';
+$('speech').animate([{transform:'translateX(-50%) scale(.8)'},{transform:'translateX(-50%) scale(1)'}],{duration:250});
 }
 function render(){
-const list=clothes.filter(c=>cat==='all'||c[2]===cat);
+let list=clothes.filter(c=>cat==='all'||c[2]===cat);
 $('wardrobe').innerHTML=list.map(c=>
 `<button class="item ${c===current?'selected':''}" onclick="wear('${c[1]}')"><span>${c[0]}</span>${c[1]}</button>`
 ).join('');
@@ -208,14 +272,14 @@ function wear(name){
 current=clothes.find(c=>c[1]===name);
 $('body').style.setProperty('--dress',current[3]);
 $('body').style.background=current[3];
-$('look').textContent=current[1]+' '+current[0];
+$('outfitLabel').textContent=current[1]+' '+current[0];
 render();
 say(comments[Math.floor(Math.random()*comments.length)]);
 }
 function filter(c){cat=c;render();}
 function randomOutfit(){
-const options=clothes.filter(c=>c[2]!=='sleep');
-wear(options[Math.floor(Math.random()*options.length)][1]);
+let list=clothes.filter(c=>c[2]!=='sleep');
+wear(list[Math.floor(Math.random()*list.length)][1]);
 }
 function chooseMakeup(type){
 makeup=type;
@@ -229,40 +293,50 @@ $('colors').innerHTML=palette.map(c=>
 ).join('');
 }
 function applyMakeup(c){
-if(makeup==='lips')$('mouth').style.background=c;
-if(makeup==='blush')document.querySelectorAll('.blush').forEach(e=>e.style.background=c+'88');
-if(makeup==='shadow')document.querySelectorAll('.eye').forEach(e=>e.style.boxShadow='0 -5px 5px '+c);
-say("OHHH, THIS MAKEUP IS EVERYTHING!! 💄");
+if(makeup==='lips')$('girl').querySelector('path[fill="#b85d76"]').setAttribute('fill',c);
+if(makeup==='blush')document.querySelectorAll('.blush').forEach(e=>e.setAttribute('fill',c));
+if(makeup==='shadow')document.querySelectorAll('.eye').forEach(e=>e.setAttribute('fill',c));
+say("OMG, THIS MAKEUP IS EVERYTHING!! 💄");
 }
 function changeHair(type){
-let h=$('hair'),f=$('fringe');
-h.style.height=type==='bun'?'135px':type==='pony'?'175px':'208px';
-h.style.width=type==='pony'?'135px':'164px';
-h.style.borderRadius=type==='bun'?'50%': '48% 48% 42% 42%';
-f.style.background=type==='bun'
-?'radial-gradient(circle at 50% 0%,#302125 0 25%,transparent 26%),repeating-radial-gradient(ellipse,#302125 0 7px,#5e3b34 8px 12px)'
-:'repeating-radial-gradient(ellipse at 45% 30%,#302125 0 7px,#5e3b34 8px 12px,#24191d 13px 17px)';
+const hair=$('girl').querySelector('path');
+const curls=$('girl').querySelectorAll('g[fill="none"]');
+if(type==='bun'){
+$('hair').style.height='140px';
+$('fringe').style.borderRadius='50%';
+}else if(type==='pony'){
+$('hair').style.height='175px';
+$('hair').style.width='135px';
+$('fringe').style.borderRadius='50%';
+}else{
+$('hair').style.height='208px';
+$('hair').style.width='164px';
+$('fringe').style.borderRadius='60% 60% 40% 35%';
+}
 say("NEW HAIR, WHO DIS?! 🎀");
 }
 function setPose(n){
 pose=n;
-$('doll').classList.remove('pose2','pose3');
-if(n===2)$('doll').classList.add('pose2');
-if(n===3)$('doll').classList.add('pose3');
-say(["Serving looks!! 📸","MODEL ENERGY!! 💃","SELFIE QUEEN!! 🪞"][n-1]);
+$('girl').style.transform=n===2?'rotate(-5deg)':n===3?'rotate(4deg) scale(.96)':'none';
+say(["SERVING SWEET LOOKS!! 📸","MODEL ENERGY!! 💃","SELFIE QUEEN!! 🪞"][n-1]);
 }
 function nextPose(){setPose(pose%3+1);}
 function kiss(){
-$('doll').classList.toggle('kiss');
-say($('doll').classList.contains('kiss')?'MWAHHH!! 💋 Sending kisses!!':'AGAINNN? Hehe 💗');
+const scene=document.querySelector('.scene');
+scene.classList.add('shy');
+$('hearts').hidden=false;
+say("OMG!! YOU'RE MAKING ME BLUSH!! 🙈💕");
+setTimeout(()=>{
+scene.classList.remove('shy');
+$('hearts').hidden=true;
+},2800);
 }
 function resetGame(){
 cat='all';current=clothes[0];
-$('doll').className='doll';
-$('hair').style.height='208px';$('hair').style.width='164px';
-$('mouth').style.background='#b85d75';
-document.querySelectorAll('.eye').forEach(e=>e.style.boxShadow='none');
-document.querySelectorAll('.blush').forEach(e=>e.style.background='#e58d9b70');
+document.querySelector('.scene').classList.remove('shy');
+$('hearts').hidden=true;
+$('girl').style.transform='none';
+$('girl').querySelectorAll('.blush').forEach(e=>e.setAttribute('fill','#ed8298'));
 wear(current[1]);
 say("BACK TO COZY MODE!! 🧸💕");
 }
