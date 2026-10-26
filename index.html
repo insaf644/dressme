@@ -1,348 +1,196 @@
+from pathlib import Path
 
-<!DOCTYPE html>
+html = r'''<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>My Dream Girl ♡</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blush Club — Dress Up Studio</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#fff2f4;color:#75475a;font-family:Arial,sans-serif}
-header{text-align:center;padding:20px;background:#fffaf7}
-h1{font:italic 36px Georgia;color:#bd7d96;margin:0}
-header p{font-size:13px}
-.app{max-width:1050px;margin:auto;padding:14px;display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:14px}
-.panel{background:#fffaf7;border:1px solid #f0d8df;border-radius:20px;padding:14px}
-.scene{height:510px;position:relative;overflow:hidden;border-radius:16px;background:linear-gradient(#f3dce9 0%,#fce8e2 70%,#d5a9b7 70%);display:flex;justify-content:center;align-items:flex-end}
-.window{position:absolute;right:22px;top:25px;width:100px;height:140px;border:7px solid #bc929e;background:linear-gradient(#a9bfd6,#fbe5e0)}
-.window:after{content:"";position:absolute;left:50%;height:100%;border-left:4px solid #bc929e}
-.plant{position:absolute;bottom:75px;left:15px;font-size:43px}
-.bed{position:absolute;bottom:0;width:100%;height:90px;background:#f9e9e9;border-radius:40% 40% 0 0}
-.tag{position:absolute;top:12px;left:12px;padding:9px 12px;border-radius:20px;background:#fffaf0e8;font-size:12px;z-index:5}
-.speech{position:absolute;top:55px;left:50%;transform:translateX(-50%);z-index:6;background:white;border:2px solid #f0c6d4;border-radius:20px;padding:11px 15px;text-align:center;color:#bd6685;font-size:13px;font-weight:bold;width:max-content;max-width:90%;box-shadow:0 5px 15px #80505b12}
-#girl{width:min(82%,340px);height:auto;max-height:420px;position:relative;z-index:3;overflow:visible;filter:drop-shadow(0 7px 5px #8754641a);transition:transform .3s}
-.blush{opacity:0;transition:opacity .25s}
-.shy .blush{opacity:1}
-.shy .eyes-open{opacity:0}
-.eyes-shy{opacity:0}
-.shy .eyes-shy{opacity:1}
-.shy #girl{animation:shy .6s ease-in-out 2 alternate}
-.hearts{position:absolute;z-index:7;top:130px;left:50%;transform:translateX(-50%);font-size:27px;white-space:nowrap;pointer-events:none}
-.hearts span{display:inline-block;animation:float 1.3s ease-in-out infinite alternate}
-.hearts span:nth-child(2){animation-delay:.3s}.hearts span:nth-child(3){animation-delay:.6s}
-@keyframes shy{from{transform:rotate(-2deg)}to{transform:rotate(2deg) translateY(-5px)}}
-@keyframes float{to{transform:translateY(-20px) rotate(12deg)}}
-.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
-button{border:0;border-radius:12px;padding:10px 12px;background:#c78399;color:white;font-weight:bold;cursor:pointer}
-button:hover{filter:brightness(1.06)}
-.actions button{flex:1}
-h3{font-size:15px;margin:2px 0 12px}
-.categories{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px}
-.categories button{flex:1;font-size:11px;padding:8px 5px}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
-.item{background:#fff0f3;color:#75475a;border:1px solid #f0d5dc;min-height:68px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;font-size:11px}
-.item span{font-size:25px}
-.item.selected{border:2px solid #c78399;background:#fbe1e7}
-.section{padding-bottom:16px;margin-bottom:16px;border-bottom:1px solid #f0dfe3}
-.colors{display:flex;gap:9px;flex-wrap:wrap}
-.color{width:29px;height:29px;border-radius:50%;padding:0;border:3px solid white;box-shadow:0 0 0 1px #d9b8c2}
-footer{text-align:center;padding:20px;color:#b77890;font-family:Georgia,serif;font-style:italic}
-@media(max-width:740px){.app{grid-template-columns:1fr;padding:8px}.scene{height:470px}h1{font-size:30px}}
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+:root{--pink:#f4a8c4;--hot:#e96c9d;--ink:#38283a;--cream:#fff8f5;--lilac:#d9c8f3;--muted:#8d7c8d}
+*{box-sizing:border-box}body{margin:0;background:#fff6f8;color:var(--ink);font-family:'DM Sans',sans-serif}
+button{font:inherit;cursor:pointer;border:0}button:focus-visible{outline:3px solid #9c73d4;outline-offset:3px}
+.app{max-width:1200px;margin:auto;padding:22px 22px 30px}
+header{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:20px}
+.brand{display:flex;align-items:center;gap:11px}.logo{width:44px;height:44px;border-radius:16px;background:linear-gradient(145deg,#ffc6d9,#d7c4fa);display:grid;place-items:center;font-size:24px;box-shadow:0 6px 18px #eab7d477}
+.brand h1{font:700 27px 'Playfair Display',serif;margin:0;letter-spacing:-.5px}.brand p{margin:2px 0 0;color:var(--muted);font-size:11px;letter-spacing:2px;text-transform:uppercase}
+.pill{border:1px solid #f0dce7;background:#fff;padding:10px 15px;border-radius:30px;color:#8d6380;font-size:12px;font-weight:700}
+.intro{text-align:center;margin:8px 0 24px}.intro h2{font:700 clamp(27px,4vw,39px) 'Playfair Display',serif;margin:0 0 6px}.intro p{margin:0;color:var(--muted);font-size:14px}
+.studio{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,.9fr);gap:20px;align-items:stretch}
+.stage{min-height:600px;position:relative;overflow:hidden;border-radius:28px;background:radial-gradient(ellipse at 50% 38%,#fff 0%,#fff9fd 40%,#f5e9fb 100%);border:1px solid #f0dfed;box-shadow:0 15px 40px #cba8c31b}
+.stage:before,.stage:after{content:"";position:absolute;border-radius:50%;pointer-events:none}.stage:before{width:330px;height:330px;background:#ffe3ed88;top:90px;left:calc(50% - 165px)}.stage:after{width:250px;height:250px;background:#dcd1ff55;bottom:-140px;right:-60px}
+.stage-top{position:absolute;top:18px;left:20px;right:20px;display:flex;justify-content:space-between;align-items:center;z-index:5}
+.tag{background:#fffdfde8;border:1px solid #f4dce8;border-radius:30px;padding:8px 12px;font-size:11px;font-weight:700;color:#a15f82}
+.doll-wrap{position:absolute;inset:65px 0 66px;display:flex;align-items:center;justify-content:center;z-index:2}
+.doll{position:relative;width:280px;height:440px;filter:drop-shadow(0 10px 7px #8f66841b);transition:transform .3s}
+.doll.pose-cute{transform:rotate(-2deg)}.doll.pose-model{transform:rotate(2deg) scale(1.02)}.doll.pose-kiss{animation:kiss .55s ease-in-out}
+@keyframes kiss{0%,100%{transform:scale(1)}40%{transform:scale(1.05) rotate(-3deg)}}
+.hair-back{position:absolute;left:44px;top:2px;width:192px;height:230px;background:#4d2b39;border-radius:48% 48% 40% 42%;z-index:1}
+.hair-back:before,.hair-back:after{content:"";position:absolute;width:48px;height:200px;background:#4d2b39;border-radius:50%;top:95px}.hair-back:before{left:-12px;transform:rotate(8deg)}.hair-back:after{right:-12px;transform:rotate(-8deg)}
+.curl{position:absolute;background:#573044;border:3px solid #6b3d53;border-radius:50%;z-index:2}.c1{width:39px;height:44px;left:36px;top:27px}.c2{width:42px;height:43px;left:65px;top:0}.c3{width:39px;height:45px;left:101px;top:7px}.c4{width:42px;height:43px;left:135px;top:23px}.c5{width:37px;height:43px;left:177px;top:45px}.c6{width:35px;height:39px;left:31px;top:82px}.c7{width:39px;height:43px;left:199px;top:95px}.c8{width:36px;height:41px;left:39px;top:137px}.c9{width:39px;height:42px;left:192px;top:151px}.c10{width:34px;height:39px;left:47px;top:185px}.c11{width:37px;height:42px;left:186px;top:197px}
+.face{position:absolute;z-index:3;left:78px;top:49px;width:125px;height:151px;background:linear-gradient(135deg,#f9d1b6,#eeb49c);border-radius:47% 47% 45% 45%;box-shadow:inset -7px -3px 0 #db9d8c44}
+.ear{position:absolute;top:111px;width:21px;height:32px;background:#edb49b;border-radius:50%;z-index:2}.ear.left{left:68px}.ear.right{right:68px}
+.bangs{position:absolute;z-index:4;top:31px;left:79px;width:124px;height:54px;background:#4d2b39;border-radius:55% 55% 30% 25%;clip-path:polygon(0 0,100% 0,100% 72%,84% 62%,70% 93%,57% 58%,43% 90%,29% 59%,14% 80%,0 62%)}
+.eye{position:absolute;top:112px;width:10px;height:14px;background:#49303a;border-radius:50%;z-index:5}.eye.left{left:108px}.eye.right{right:108px}.eye:after{content:"";position:absolute;width:3px;height:4px;border-radius:50%;background:#fff;top:2px;left:2px}
+.brow{position:absolute;top:101px;width:24px;height:5px;border-top:3px solid #754653;border-radius:50%;z-index:5}.brow.left{left:100px;transform:rotate(-8deg)}.brow.right{right:100px;transform:rotate(8deg)}
+.nose{position:absolute;top:130px;left:137px;width:8px;height:10px;border-right:2px solid #d38f81;border-radius:50%;z-index:5}
+.mouth{position:absolute;top:151px;left:127px;width:27px;height:12px;border-bottom:3px solid #b94d70;border-radius:0 0 50% 50%;z-index:5}
+.blush{position:absolute;z-index:5;top:139px;width:26px;height:13px;background:#f47d9a88;border-radius:50%;filter:blur(4px);opacity:0;transition:opacity .3s}.blush.left{left:88px}.blush.right{right:88px}.blushing .blush{opacity:1}
+.neck{position:absolute;z-index:2;left:125px;top:184px;width:32px;height:40px;background:#eab19a;border-radius:10px}
+.body{position:absolute;z-index:3;top:209px;left:83px;width:114px;height:110px;background:#f1b5cb;border-radius:38px 38px 12px 12px;clip-path:polygon(22% 0,78% 0,100% 100%,0 100%)}
+.arms{position:absolute;z-index:2;top:225px;left:55px;width:170px;height:100px;border-left:20px solid #eeb49c;border-right:20px solid #eeb49c;border-radius:30px;transform:rotate(2deg);pointer-events:none}
+.skirt{position:absolute;z-index:4;top:286px;left:65px;width:150px;height:91px;background:#ffc9df;border:2px solid #f0a8c8;clip-path:polygon(20% 0,80% 0,100% 100%,0 100%);border-radius:0 0 10px 10px}
+.legs{position:absolute;z-index:2;top:360px;left:100px;width:83px;height:69px;border-left:25px solid #edb39b;border-right:25px solid #edb39b}
+.socks{position:absolute;z-index:3;top:400px;left:98px;width:84px;height:22px;border-left:29px solid #fff;border-right:29px solid #fff}
+.shoes{position:absolute;z-index:4;top:418px;left:87px;width:106px;height:18px;border-radius:50%;background:#e77da8;box-shadow:0 4px 0 #b85483}
+.outfit{position:absolute;inset:0;z-index:6;pointer-events:none}.outfit svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.accessory{position:absolute;z-index:7;pointer-events:none}
+.bow{top:27px;left:184px;font-size:29px;transform:rotate(15deg)}.necklace{top:220px;left:130px;font-size:19px}
+.hearts{position:absolute;inset:0;z-index:10;pointer-events:none;overflow:hidden}.heart{position:absolute;bottom:30%;font-size:23px;animation:floatUp 1.8s ease-out forwards}@keyframes floatUp{to{transform:translateY(-220px) rotate(25deg);opacity:0}}
+.bubble{position:absolute;z-index:12;top:76px;left:50%;transform:translateX(-50%) scale(.8);background:white;border:2px solid #ffc1d8;border-radius:22px;padding:12px 16px;max-width:245px;text-align:center;font-size:12px;font-weight:700;color:#c54e82;opacity:0;transition:.25s;box-shadow:0 7px 20px #d68fb333;pointer-events:none}.bubble.show{opacity:1;transform:translateX(-50%) scale(1)}
+.stage-bottom{position:absolute;bottom:17px;left:20px;right:20px;z-index:4;display:flex;justify-content:center;gap:9px}
+.action{padding:11px 15px;border-radius:14px;font-size:12px;font-weight:700;transition:.2s}.action:hover{transform:translateY(-2px)}.primary{background:#e976a4;color:white;box-shadow:0 5px 12px #e976a444}.soft{background:#fff;color:#8f5e7a;border:1px solid #f2d8e5}
+.panel{background:#fff;border:1px solid #f0dfed;border-radius:28px;padding:22px;box-shadow:0 15px 40px #cba8c31b;min-width:0}
+.panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}.panel h3{font:700 23px 'Playfair Display',serif;margin:0}.tiny{font-size:11px;color:#a28d9e}
+.tabs{display:flex;gap:6px;background:#fff5f9;padding:5px;border-radius:14px;margin-bottom:17px;overflow:auto}.tab{flex:1;min-width:max-content;padding:10px 11px;background:transparent;border-radius:10px;color:#92788b;font-size:12px;font-weight:700}.tab.active{background:#fff;color:#d85f91;box-shadow:0 2px 8px #d9a4c21e}
+.shelf-title{display:flex;align-items:center;justify-content:space-between;margin:15px 0 10px}.shelf-title strong{font-size:13px}.shelf-title span{font-size:11px;color:#b092a5}
+.items{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.item{position:relative;min-width:0;min-height:100px;border:1px solid #f2e5ed;background:linear-gradient(145deg,#fffafd,#fff5f9);border-radius:15px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:9px 3px;color:#72566a;transition:.2s}
+.item:hover{border-color:#ee9fbe;transform:translateY(-2px)}.item.selected{border:2px solid #e77da8;background:#fff0f6;box-shadow:0 4px 12px #e77da822}
+.item .emoji{font-size:31px;line-height:1.15}.item .name{font-size:10px;font-weight:700;text-align:center;line-height:1.25}
+.color-dot{width:17px;height:17px;border-radius:50%;border:2px solid white;box-shadow:0 0 0 1px #ead8e3}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:17px}.controls button{flex:1}
+.note{margin-top:15px;padding:12px 13px;border-radius:15px;background:#fff6f9;color:#9d7189;font-size:11px;line-height:1.5}
+.footer{text-align:center;color:#b79eaf;font-size:10px;margin-top:20px;letter-spacing:1px}
+@media(max-width:780px){.app{padding:14px}.studio{grid-template-columns:1fr}.stage{min-height:570px}.panel{padding:18px}.intro{margin-bottom:18px}.brand h1{font-size:23px}.pill{font-size:10px;padding:9px 10px}}
+@media(max-width:380px){.doll{transform:scale(.88)}.items{grid-template-columns:repeat(3,minmax(0,1fr))}.stage{min-height:530px}}
 </style>
 </head>
 <body>
+<div class="app">
 <header>
-<h1>My Dream Girl ♡</h1>
-<p>Dress Up · Makeup · Hair · Sweet Moments ✨</p>
+ <div class="brand"><div class="logo">🎀</div><div><h1>Blush Club</h1><p>Your little dress-up world</p></div></div>
+ <div class="pill">✦ YOUR PRIVATE FASHION STUDIO</div>
 </header>
-
-<main class="app">
-<section class="panel">
-<div class="scene">
-<div class="window"></div><div class="plant">🪴</div><div class="bed"></div>
-<div class="tag" id="outfitLabel">Cozy Teddy Pajamas 🧸</div>
-<div class="speech" id="speech">Hiii, bestie!! Let's get cute! 💗</div>
-<div class="hearts" id="hearts" hidden><span>💕</span><span>💗</span><span>💖</span></div>
-
-<!-- One complete SVG character, not separate CSS body blocks -->
-<svg id="girl" viewBox="0 0 300 410" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Curly-haired fashion girl">
-<defs>
- <linearGradient id="skin" x1="0" x2="1">
-  <stop offset="0" stop-color="#c98770"/>
-  <stop offset=".48" stop-color="#f0c1a5"/>
-  <stop offset="1" stop-color="#d69b80"/>
- </linearGradient>
- <linearGradient id="hairColor" x1="0" y1="0" x2="1" y2="1">
-  <stop stop-color="#24191d"/><stop offset=".45" stop-color="#654136"/><stop offset=".7" stop-color="#302023"/><stop offset="1" stop-color="#754a3c"/>
- </linearGradient>
- <linearGradient id="fabric" x1="0" y1="0" x2="1" y2="1">
-  <stop stop-color="#fff0f0"/><stop offset="1" stop-color="#e9b6c7"/>
- </linearGradient>
-</defs>
-
-<!-- Long curly hair behind the body -->
-<path d="M76 112 C47 75 62 20 116 22 C139 4 175 15 192 30 C236 24 251 75 228 113
- C248 143 232 191 217 212 L82 212 C59 187 52 150 76 112Z" fill="url(#hairColor)"/>
-<g fill="none" stroke-linecap="round" stroke-width="12">
- <path d="M79 62 C48 72 84 93 67 110 S85 145 67 161 S81 190 85 207" stroke="#4b302a"/>
- <path d="M96 39 C73 57 104 76 88 94 S104 126 88 145 S104 177 95 199" stroke="#79503d"/>
- <path d="M120 30 C102 48 132 66 112 83 S132 117 114 134 S131 170 119 198" stroke="#392527"/>
- <path d="M144 27 C126 48 157 61 138 83 S157 116 141 139 S158 173 145 202" stroke="#79503d"/>
- <path d="M170 31 C150 50 181 70 164 89 S183 124 164 146 S183 180 172 204" stroke="#392527"/>
- <path d="M194 43 C176 62 209 80 190 101 S209 132 191 155 S208 184 197 205" stroke="#79503d"/>
- <path d="M216 67 C196 84 226 103 210 121 S226 153 211 171 S221 192 218 204" stroke="#392527"/>
-</g>
-
-<!-- Neck, arms and petite body -->
-<path d="M128 132 L127 161 Q150 180 173 158 L171 130Z" fill="url(#skin)"/>
-<path d="M91 184 Q96 159 124 158 L150 179 L176 158 Q202 161 211 187
- L229 270 Q231 285 214 288 L86 288 Q69 282 74 267Z" fill="url(#fabric)" stroke="#fff7f6" stroke-width="3"/>
-<path d="M93 184 Q77 208 79 249 L87 280 Q92 290 101 282 L105 245 L119 194Z" fill="url(#skin)"/>
-<path d="M199 184 Q218 208 214 249 L206 280 Q201 290 192 282 L188 245 L175 194Z" fill="url(#skin)"/>
-
-<!-- Pajama collar and buttons -->
-<path id="collar" d="M125 160 L148 182 L136 202 L114 170Z M174 160 L151 182 L164 202 L185 170Z" fill="#fff9f5" stroke="#e9c5cd" stroke-width="2"/>
-<path d="M150 182 L150 281" stroke="#fff8f4" stroke-width="2"/>
-<g fill="#cf879e"><circle cx="150" cy="211" r="2.7"/><circle cx="150" cy="231" r="2.7"/><circle cx="150" cy="251" r="2.7"/></g>
-
-<!-- Hands -->
-<path d="M85 275 Q77 287 86 299 Q95 306 101 294 L101 280Z" fill="url(#skin)"/>
-<path d="M206 275 Q214 287 205 299 Q196 306 190 294 L190 280Z" fill="url(#skin)"/>
-
-<!-- Legs -->
-<path d="M91 282 Q119 293 147 284 L145 357 Q143 373 125 374 L112 373 Q98 370 98 355Z" fill="url(#skin)"/>
-<path d="M153 284 Q181 293 207 282 L200 355 Q199 370 181 374 L169 373 Q155 370 155 355Z" fill="url(#skin)"/>
-<path d="M99 350 Q121 358 145 351 L145 369 Q119 383 98 368Z" fill="#f8e7e8"/>
-<path d="M155 351 Q178 358 202 350 L201 368 Q178 383 155 369Z" fill="#f8e7e8"/>
-
-<!-- Face and ears -->
-<ellipse cx="83" cy="94" rx="12" ry="19" fill="url(#skin)"/>
-<ellipse cx="217" cy="94" rx="12" ry="19" fill="url(#skin)"/>
-<path d="M86 69 Q88 34 150 34 Q212 34 214 69 L207 112 Q199 147 150 151 Q101 147 93 112Z" fill="url(#skin)"/>
-
-<!-- Front curls -->
-<path d="M85 81 C70 42 101 17 128 31 C142 9 168 23 177 32 C205 21 226 47 214 81
- C199 68 199 53 184 51 C171 68 161 60 150 47 C137 66 119 56 110 48 C103 62 99 74 85 81Z" fill="url(#hairColor)"/>
-<g fill="none" stroke="#79503d" stroke-width="7" stroke-linecap="round">
- <path d="M99 51 Q84 65 102 72"/>
- <path d="M126 34 Q108 49 129 58"/>
- <path d="M153 34 Q138 48 158 56"/>
- <path d="M181 38 Q165 52 185 60"/>
- <path d="M201 49 Q187 63 203 72"/>
-</g>
-
-<!-- Eyes: open and shy expressions -->
-<g class="eyes-open" fill="#38252a">
- <ellipse cx="124" cy="91" rx="7" ry="9"/>
- <ellipse cx="176" cy="91" rx="7" ry="9"/>
- <circle cx="126" cy="88" r="2.3" fill="white"/>
- <circle cx="178" cy="88" r="2.3" fill="white"/>
-</g>
-<g class="eyes-shy" fill="none" stroke="#513039" stroke-width="3" stroke-linecap="round">
- <path d="M112 92 Q124 103 136 92"/>
- <path d="M164 92 Q176 103 188 92"/>
-</g>
-<path d="M113 80 Q124 75 135 81 M165 81 Q176 75 187 80" stroke="#57362f" stroke-width="3" fill="none" stroke-linecap="round"/>
-<ellipse class="blush" cx="111" cy="109" rx="15" ry="8" fill="#ed8298"/>
-<ellipse class="blush" cx="189" cy="109" rx="15" ry="8" fill="#ed8298"/>
-<path d="M147 97 Q142 109 150 110" fill="none" stroke="#bd806d" stroke-width="2" stroke-linecap="round"/>
-<path d="M138 120 Q150 130 162 120 Q150 125 138 120Z" fill="#b85d76" stroke="#a64e68" stroke-width="1"/>
-</svg>
-</div>
-
-<div class="actions">
-<button onclick="randomOutfit()">✨ Dress Me!</button>
-<button onclick="kiss()">💋 Kiss Me</button>
-<button onclick="nextPose()">📸 Change Pose</button>
-<button onclick="resetGame()">↻ Reset</button>
-</div>
+<section class="intro"><h2>A little outfit, a little magic.</h2><p>Style her mood, build her look, and see what happens when you blow her a kiss.</p></section>
+<main class="studio">
+<section class="stage" id="stage">
+ <div class="stage-top"><span class="tag">♡ MIA'S STUDIO</span><span class="tag" id="mood">Mood: sleepy ☁️</span></div>
+ <div class="bubble" id="bubble">OMG!! YOU’RE MAKING ME BLUSH!! 🙈💕</div>
+ <div class="doll-wrap"><div class="doll pose-cute" id="doll">
+  <div class="hair-back"></div>
+  <div class="curl c1"></div><div class="curl c2"></div><div class="curl c3"></div><div class="curl c4"></div><div class="curl c5"></div><div class="curl c6"></div><div class="curl c7"></div><div class="curl c8"></div><div class="curl c9"></div><div class="curl c10"></div><div class="curl c11"></div>
+  <div class="ear left"></div><div class="ear right"></div><div class="face"></div><div class="bangs"></div>
+  <div class="brow left"></div><div class="brow right"></div><div class="eye left"></div><div class="eye right"></div><div class="nose"></div><div class="mouth" id="mouth"></div><div class="blush left"></div><div class="blush right"></div>
+  <div class="neck"></div><div class="arms" id="arms"></div><div class="body" id="top"></div><div class="skirt" id="bottom"></div><div class="legs"></div><div class="socks" id="socks"></div><div class="shoes" id="shoes"></div>
+  <div class="outfit" id="outfit"></div><div class="accessory bow" id="bow">🎀</div><div class="accessory necklace" id="necklace">♡</div>
+ </div></div>
+ <div class="hearts" id="hearts"></div>
+ <div class="stage-bottom"><button class="action primary" id="dressMe">✨ Dress me!</button><button class="action soft" id="kiss">💋 Blow a kiss</button><button class="action soft" id="pose">📸 Pose</button></div>
 </section>
-
-<aside class="panel">
-<div class="section">
-<h3>👗 The Wardrobe</h3>
-<div class="categories">
-<button onclick="filter('all')">All</button>
-<button onclick="filter('dress')">Dresses</button>
-<button onclick="filter('casual')">Casual</button>
-<button onclick="filter('sleep')">Pajamas</button>
-<button onclick="filter('swim')">Swimwear</button>
-<button onclick="filter('formal')">Elegant</button>
-</div>
-<div class="grid" id="wardrobe"></div>
-</div>
-
-<div class="section">
-<h3>💄 Makeup Studio</h3>
-<div class="categories">
-<button onclick="chooseMakeup('lips')">Lipstick</button>
-<button onclick="chooseMakeup('blush')">Blush</button>
-<button onclick="chooseMakeup('shadow')">Eyeshadow</button>
-</div>
-<div class="colors" id="colors"></div>
-</div>
-
-<div class="section">
-<h3>💇 Hairstyles</h3>
-<div class="grid">
-<button class="item" onclick="changeHair('curly')"><span>👩🏻‍🦱</span>Long Curls</button>
-<button class="item" onclick="changeHair('bun')"><span>🎀</span>Messy Bun</button>
-<button class="item" onclick="changeHair('pony')"><span>💁🏻‍♀️</span>Ponytail</button>
-</div>
-</div>
-
-<div class="section">
-<h3>📸 Photo Poses</h3>
-<div class="grid">
-<button class="item" onclick="setPose(1)"><span>🧸</span>Sweet</button>
-<button class="item" onclick="setPose(2)"><span>💃</span>Fashion</button>
-<button class="item" onclick="setPose(3)"><span>🪞</span>Selfie</button>
-</div>
-</div>
-</aside>
+<section class="panel">
+ <div class="panel-head"><h3>Style her</h3><span class="tiny" id="count">12 pieces to play with</span></div>
+ <div class="tabs" id="tabs">
+  <button class="tab active" data-tab="clothes">👗 Clothes</button><button class="tab" data-tab="hair">💇 Hair</button><button class="tab" data-tab="makeup">💄 Beauty</button><button class="tab" data-tab="extras">👜 Extras</button>
+ </div>
+ <div class="shelf-title"><strong id="shelfHeading">The wardrobe</strong><span>tap to try it on</span></div>
+ <div class="items" id="items"></div>
+ <div class="controls"><button class="action soft" id="reset">↺ Start over</button><button class="action primary" id="save">♡ Save my look</button></div>
+ <div class="note" id="note">Mia's just woken up in her favourite pink pyjamas. Pick a category and make her feel fabulous. ✨</div>
+</section>
 </main>
-<footer>Made with love, just for you ♡</footer>
-
+<div class="footer">MADE WITH ♡ · BLUSH CLUB DRESS-UP STUDIO</div>
+</div>
 <script>
-const clothes=[
-['🧸','Cozy Teddy Pajamas','sleep','#f2d3dc'],
-['🌙','Moonlight Pajamas','sleep','#d0c4eb'],
-['☁️','Cloud Nine Set','sleep','#d8eaf1'],
-['🎀','Pink Satin Pajamas','sleep','#dda6bd'],
-['🌸','Pink Princess Dress','dress','#eaa8c0'],
-['🌹','Red Rose Dress','dress','#b73d59'],
-['🤍','Pearl White Dress','dress','#f2e7dd'],
-['🖤','Little Black Dress','dress','#39313b'],
-['💜','Lavender Dream','dress','#c5b1e4'],
-['👑','Royal Princess','dress','#d6b66f'],
-['👖','Denim & Cute Top','casual','#91aac9'],
-['🎧','Sporty Girl','casual','#a8c9d5'],
-['🧶','Cozy Cardigan','casual','#caa4a3'],
-['☕','Coffee Date Look','casual','#b98e76'],
-['💼','Smart Blazer','formal','#77768a'],
-['✨','Golden Glam','formal','#d0ad64'],
-['🪩','Party Night','formal','#b59ad0'],
-['📚','Bookworm Chic','formal','#9295aa'],
-['👙','Pink Beach Set','swim','#e8a0bf'],
-['🩱','Classic Swimsuit','swim','#b184a8'],
-['🦋','Purple Beach Set','swim','#aa9bd8'],
-['🌊','Ocean Blue Set','swim','#80c1d9'],
-['🌴','Tropical Beach Set','swim','#9fc6a0'],
-['🌷','Spring Blossom Dress','dress','#efc2bd'],
-['🍒','Cherry Sweet Dress','dress','#dd8293'],
-['🍓','Strawberry Outfit','casual','#e9a4b4'],
-['🐻','Teddy Bear Onesie','sleep','#ddc4aa'],
-['⭐','Starry Evening Dress','formal','#c9a7d8'],
-['🩰','Balletcore Outfit','dress','#f1d0df'],
-['🍋','Sunny Day Outfit','casual','#e7d58c'],
-['🦢','Swan Princess Dress','dress','#f0e9ee'],
-['🧥','Autumn Chic','casual','#bc927d'],
-['🪷','Rose Garden Dress','dress','#dfa3b3'],
-['💎','Diamond Glam','formal','#a5c7d7'],
-['🍦','Sweet Cream Dress','dress','#f3d8c0'],
-['🌼','Daisy Day Dress','dress','#f0d779'],
-['🧁','Cupcake Pajamas','sleep','#e8bfd4'],
-['🩷','Barbie Pink Look','casual','#ed9fc2'],
-['🪻','Lilac Lounge Set','sleep','#c6b6dc'],
-['🌺','Island Swimsuit','swim','#edb36e']
-];
-let current=clothes[0],cat='all',makeup='lips',pose=1;
+const wardrobe={
+ clothes:[
+  {name:'Sleepy PJs',emoji:'🌸',color:'#f1b5cb',kind:'pajama',desc:'Her soft pink starting set.'},
+  {name:'Cherry Dress',emoji:'🍒',color:'#e94f75',kind:'dress',desc:'Sweet, flirty and full of charm.'},
+  {name:'Princess Gown',emoji:'👑',color:'#c9a8f0',kind:'gown',desc:'A little main-character moment.'},
+  {name:'Coquette Set',emoji:'🎀',color:'#ffc5dc',kind:'set',desc:'Bows on bows on bows.'},
+  {name:'Denim Day',emoji:'👖',color:'#7ca9db',kind:'denim',desc:'Cute and casual.'},
+  {name:'Black Chic',emoji:'🖤',color:'#3f3447',kind:'black',desc:'She understood the assignment.'},
+  {name:'Fairy Tulle',emoji:'🧚',color:'#a9d8ca',kind:'fairy',desc:'A tiny bit of fairy magic.'},
+  {name:'Golden Hour',emoji:'🌼',color:'#f0c76e',kind:'gold',desc:'Sunshine, but make it fashion.'}
+ ],
+ hair:[
+  {name:'Curly Brunette',emoji:'🌀',color:'#4d2b39',kind:'curl',desc:'Her signature big curls.'},
+  {name:'Honey Curls',emoji:'🍯',color:'#bd8249',kind:'honey',desc:'Warm honey-brown curls.'},
+  {name:'Midnight',emoji:'🌙',color:'#292333',kind:'midnight',desc:'Glossy dark curls.'},
+  {name:'Rose Ribbon',emoji:'🎀',color:'#e77da8',kind:'ribbon',desc:'A romantic ribbon moment.'}
+ ],
+ makeup:[
+  {name:'Rosy Blush',emoji:'🌷',color:'#f47d9a',kind:'blush',desc:'A soft rosy flush.'},
+  {name:'Glossy Lips',emoji:'💋',color:'#d95480',kind:'lips',desc:'A little pink gloss.'},
+  {name:'Starry Eyes',emoji:'✨',color:'#bba1f2',kind:'stars',desc:'Eyes that sparkle.'},
+  {name:'Doll Lashes',emoji:'🪞',color:'#49303a',kind:'lashes',desc:'Extra fluttery lashes.'}
+ ],
+ extras:[
+  {name:'Pearl Bag',emoji:'👜',color:'#fff1f6',kind:'bag',desc:'A pearl-pink mini bag.'},
+  {name:'Heart Necklace',emoji:'💗',color:'#e77da8',kind:'necklace',desc:'A little love close to her heart.'},
+  {name:'Ballet Shoes',emoji:'🩰',color:'#f4a8c4',kind:'shoes',desc:'Pretty ballet-inspired shoes.'},
+  {name:'Flower Crown',emoji:'🌼',color:'#f4d878',kind:'crown',desc:'Garden-party energy.'},
+  {name:'Tiny Crown',emoji:'👑',color:'#f4d878',kind:'crown2',desc:'As she should be.'},
+  {name:'Heart Glasses',emoji:'🕶️',color:'#e77da8',kind:'glasses',desc:'Too cute to handle.'}
+ ]};
+let selectedTab='clothes', selected={}, poseIndex=0, blushOn=false;
 const $=id=>document.getElementById(id);
-const comments=[
-"OMG, I LOVE ITTT!! 💗","THANK YOUUU, BABE!! 🥹💕",
-"WOWWWWW!! I'M OBSESSED!! ✨","STOPPP, THIS IS SO CUTE!! 🎀",
-"YOU GET ME SO WELL!! 😭💖","BESTIE, YOU ATE!! 💅",
-"I FEEL SO PRETTY!! 🩷","THIS IS LITERALLY PERFECT!! 🌸",
-"OKAYYY, FASHION ICON!! 👑","AHHHH, MY NEW FAVOURITE!! 💋",
-"HOW DO YOU ALWAYS KNOW?! 🥹","I'M IN LOVE WITH THIS LOOK!! 💞",
-"IT'S GIVING PRINCESS!! 👑","NO NOTES. JUST PERFECTION. ✨",
-"THANK YOU, MY LOVE!! 💗","WAIT... I LOOK AMAZING!! 😭"
-];
-function say(text){
-$('speech').textContent=text;
-$('speech').animate([{transform:'translateX(-50%) scale(.8)'},{transform:'translateX(-50%) scale(1)'}],{duration:250});
+function renderItems(){
+ const list=wardrobe[selectedTab]; $('items').innerHTML='';
+ $('shelfHeading').textContent=({clothes:'The wardrobe',hair:'Hair studio',makeup:'Beauty corner',extras:'Finishing touches'})[selectedTab];
+ $('count').textContent=list.length+' pieces to play with';
+ list.forEach((item,i)=>{const b=document.createElement('button');b.className='item'+(selected[selectedTab]===i?' selected':'');b.innerHTML=`<span class="emoji">${item.emoji}</span><span class="name">${item.name}</span>`;b.onclick=()=>{selected[selectedTab]=i;applyItem(selectedTab,item);renderItems();$('note').textContent=item.desc+' ✨'};$('items').appendChild(b)});
 }
-function render(){
-let list=clothes.filter(c=>cat==='all'||c[2]===cat);
-$('wardrobe').innerHTML=list.map(c=>
-`<button class="item ${c===current?'selected':''}" onclick="wear('${c[1]}')"><span>${c[0]}</span>${c[1]}</button>`
-).join('');
+function applyItem(tab,item){
+ const doll=$('doll');
+ if(tab==='clothes'){
+  $('top').style.background=item.color;$('bottom').style.background=item.color;
+  $('outfit').innerHTML='';
+  const shapes={
+   pajama:`<svg viewBox="0 0 280 440"><path d="M103 215 Q140 229 177 215 L191 293 L89 293Z" fill="${item.color}" stroke="#e99cbd" stroke-width="2"/><path d="M106 227 L174 227" stroke="#fff5fb" stroke-width="4" stroke-dasharray="5 6"/><path d="M95 298 L185 298" stroke="#fff5fb" stroke-width="3"/></svg>`,
+   dress:`<svg viewBox="0 0 280 440"><path d="M105 215 Q140 230 175 215 L190 292 L90 292Z" fill="${item.color}" stroke="#fff4f8" stroke-width="2"/><path d="M104 291 L216 291 L240 371 L40 371Z" fill="${item.color}" stroke="#d94d76" stroke-width="2"/><path d="M140 300 l6 10 -6 10 -6 -10Z" fill="#ffe4ee"/></svg>`,
+   gown:`<svg viewBox="0 0 280 440"><path d="M105 215 Q140 230 175 215 L188 292 L92 292Z" fill="${item.color}"/><path d="M100 290 L180 290 L245 378 L35 378Z" fill="${item.color}" stroke="#a989d7" stroke-width="2"/><path d="M60 355 Q140 375 220 355" stroke="#fff" stroke-width="3" fill="none"/></svg>`,
+   set:`<svg viewBox="0 0 280 440"><path d="M104 215 Q140 228 176 215 L185 272 L95 272Z" fill="${item.color}" stroke="#f08bb8" stroke-width="2"/><path d="M95 274 L185 274 L215 369 L65 369Z" fill="${item.color}" stroke="#f08bb8" stroke-width="2"/><path d="M140 220 l-9 10 9 8 9 -8Z" fill="#fff"/></svg>`,
+   denim:`<svg viewBox="0 0 280 440"><path d="M105 215 Q140 230 175 215 L188 292 L92 292Z" fill="#fff0f5"/><path d="M93 290 L187 290 L198 370 L82 370Z" fill="${item.color}" stroke="#537fb4" stroke-width="2"/><path d="M140 292 V366" stroke="#537fb4" stroke-width="2"/></svg>`,
+   black:`<svg viewBox="0 0 280 440"><path d="M105 215 Q140 230 175 215 L190 293 L90 293Z" fill="${item.color}"/><path d="M92 290 L188 290 L224 371 L56 371Z" fill="${item.color}" stroke="#b9a2c3" stroke-width="2"/><path d="M140 302 l6 9 -6 9 -6 -9Z" fill="#f6c5da"/></svg>`,
+   fairy:`<svg viewBox="0 0 280 440"><path d="M105 215 Q140 230 175 215 L188 292 L92 292Z" fill="${item.color}"/><path d="M100 290 L180 290 L230 371 L50 371Z" fill="${item.color}" stroke="#7abca9" stroke-width="2"/><path d="M50 360 Q140 390 230 360" stroke="#e7fff6" stroke-width="4" fill="none"/></svg>`,
+   gold:`<svg viewBox="0 0 280 440"><path d="M105 215 Q140 230 175 215 L188 292 L92 292Z" fill="${item.color}"/><path d="M92 290 L188 290 L220 371 L60 371Z" fill="${item.color}" stroke="#d8a93f" stroke-width="2"/><path d="M105 305 L175 305" stroke="#fff4c8" stroke-width="3"/></svg>`
+  };
+  $('outfit').innerHTML=shapes[item.kind]||'';
+  $('bow').textContent=item.kind==='black'?'🖤':item.kind==='gold'?'🌼':'🎀';
+  $('mood').textContent='Mood: '+({pajama:'sleepy ☁️',dress:'flirty 🍒',gown:'royal 👑',set:'coquette 🎀',denim:'casual 🫶',black:'iconic 🖤',fairy:'dreamy 🧚',gold:'sunny 🌼'})[item.kind];
+ }
+ if(tab==='hair'){
+  const color=item.color;
+  document.querySelectorAll('.hair-back,.curl,.bangs').forEach(el=>{el.style.background=color;el.style.borderColor= item.kind==='honey'?'#d39b62':color});
+  $('bow').textContent=item.kind==='ribbon'?'🎀':'';
+ }
+ if(tab==='makeup'){
+  if(item.kind==='blush'){doll.classList.add('blushing');blushOn=true}
+  if(item.kind==='lips'){$('mouth').style.borderBottomColor=item.color;$('mouth').style.height='14px'}
+  if(item.kind==='stars'){$('brow').style.color=item.color;document.querySelectorAll('.eye').forEach(e=>e.style.boxShadow='0 0 0 3px #d5c1f888')}
+  if(item.kind==='lashes')document.querySelectorAll('.eye').forEach(e=>e.style.height='17px');
+ }
+ if(tab==='extras'){
+  if(item.kind==='necklace')$('necklace').textContent='💗';
+  if(item.kind==='shoes')$('shoes').style.background=item.color;
+  if(item.kind==='crown')$('bow').textContent='🌼';
+  if(item.kind==='crown2')$('bow').textContent='👑';
+  if(item.kind==='glasses'){$('face').dataset.glasses='1';$('outfit').insertAdjacentHTML('beforeend','<svg viewBox="0 0 280 440"><g fill="#e77da866" stroke="#8b4b6d" stroke-width="2"><circle cx="117" cy="120" r="16"/><circle cx="164" cy="120" r="16"/><path d="M133 120 H148"/></g></svg>')}
+  if(item.kind==='bag')$('necklace').textContent='👜';
+ }
 }
-function wear(name){
-current=clothes.find(c=>c[1]===name);
-$('body').style.setProperty('--dress',current[3]);
-$('body').style.background=current[3];
-$('outfitLabel').textContent=current[1]+' '+current[0];
-render();
-say(comments[Math.floor(Math.random()*comments.length)]);
-}
-function filter(c){cat=c;render();}
-function randomOutfit(){
-let list=clothes.filter(c=>c[2]!=='sleep');
-wear(list[Math.floor(Math.random()*list.length)][1]);
-}
-function chooseMakeup(type){
-makeup=type;
-let palette=type==='lips'
-?['#b83f58','#d86d87','#e7a1aa','#8c435b','#cc7a92','#eeb3c3']
-:type==='blush'
-?['#f1b2b0','#e89cae','#d58a95','#f3c9bc','#e5a0a5']
-:['#a78ab8','#d5b2c7','#9e796f','#c6a67d','#69536c','#e7c2b6'];
-$('colors').innerHTML=palette.map(c=>
-`<button class="color" style="background:${c}" onclick="applyMakeup('${c}')"></button>`
-).join('');
-}
-function applyMakeup(c){
-if(makeup==='lips')$('girl').querySelector('path[fill="#b85d76"]').setAttribute('fill',c);
-if(makeup==='blush')document.querySelectorAll('.blush').forEach(e=>e.setAttribute('fill',c));
-if(makeup==='shadow')document.querySelectorAll('.eye').forEach(e=>e.setAttribute('fill',c));
-say("OMG, THIS MAKEUP IS EVERYTHING!! 💄");
-}
-function changeHair(type){
-const hair=$('girl').querySelector('path');
-const curls=$('girl').querySelectorAll('g[fill="none"]');
-if(type==='bun'){
-$('hair').style.height='140px';
-$('fringe').style.borderRadius='50%';
-}else if(type==='pony'){
-$('hair').style.height='175px';
-$('hair').style.width='135px';
-$('fringe').style.borderRadius='50%';
-}else{
-$('hair').style.height='208px';
-$('hair').style.width='164px';
-$('fringe').style.borderRadius='60% 60% 40% 35%';
-}
-say("NEW HAIR, WHO DIS?! 🎀");
-}
-function setPose(n){
-pose=n;
-$('girl').style.transform=n===2?'rotate(-5deg)':n===3?'rotate(4deg) scale(.96)':'none';
-say(["SERVING SWEET LOOKS!! 📸","MODEL ENERGY!! 💃","SELFIE QUEEN!! 🪞"][n-1]);
-}
-function nextPose(){setPose(pose%3+1);}
-function kiss(){
-const scene=document.querySelector('.scene');
-scene.classList.add('shy');
-$('hearts').hidden=false;
-say("OMG!! YOU'RE MAKING ME BLUSH!! 🙈💕");
-setTimeout(()=>{
-scene.classList.remove('shy');
-$('hearts').hidden=true;
-},2800);
-}
-function resetGame(){
-cat='all';current=clothes[0];
-document.querySelector('.scene').classList.remove('shy');
-$('hearts').hidden=true;
-$('girl').style.transform='none';
-$('girl').querySelectorAll('.blush').forEach(e=>e.setAttribute('fill','#ed8298'));
-wear(current[1]);
-say("BACK TO COZY MODE!! 🧸💕");
-}
-chooseMakeup('lips');
-wear(clothes[0][1]);
-say("HIIII, BESTIE!! LET'S GET CUTE!! 💗");
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');selectedTab=b.dataset.tab;renderItems()});
+$('kiss').onclick=()=>{const doll=$('doll');doll.classList.remove('pose-cute','pose-model');doll.classList.add('pose-kiss','blushing');$('bubble').classList.add('show');$('mood').textContent='Mood: blushing 🙈';$('mouth').style.borderBottomColor='#d84c7c';for(let i=0;i<9;i++){const h=document.createElement('span');h.className='heart';h.textContent=['💗','💕','💖','💘','♥'][Math.floor(Math.random()*5)];h.style.left=(25+Math.random()*50)+'%';h.style.animationDelay=(Math.random()*.5)+'s';$('hearts').appendChild(h);setTimeout(()=>h.remove(),2300)}setTimeout(()=>$('bubble').classList.remove('show'),2200);setTimeout(()=>doll.classList.remove('pose-kiss'),650)};
+$('pose').onclick=()=>{poseIndex=(poseIndex+1)%3;$('doll').classList.remove('pose-cute','pose-model');$('doll').classList.add(poseIndex===0?'pose-cute':poseIndex===1?'pose-model':'pose-kiss');$('mood').textContent=['Mood: cute 🌸','Mood: model 📸','Mood: main character ✨'][poseIndex];if(poseIndex===2)setTimeout(()=>$('doll').classList.remove('pose-kiss'),600)};
+$('dressMe').onclick=()=>{const choices=wardrobe.clothes;const item=choices[Math.floor(Math.random()*choices.length)];selected.clothes=choices.indexOf(item);applyItem('clothes',item);selectedTab='clothes';document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x.dataset.tab==='clothes'));renderItems();$('note').textContent='Surprise outfit unlocked! '+item.desc+' 💖'};
+$('reset').onclick=()=>{selected={};$('top').style.background='#f1b5cb';$('bottom').style.background='#ffc9df';$('outfit').innerHTML='';$('bow').textContent='🎀';$('necklace').textContent='♡';$('shoes').style.background='#e77da8';$('doll').className='doll pose-cute';document.querySelectorAll('.hair-back,.curl,.bangs').forEach(el=>{el.style.background='#4d2b39';el.style.borderColor='#6b3d53'});$('mouth').style.borderBottomColor='#b94d70';$('mouth').style.height='12px';document.querySelectorAll('.eye').forEach(e=>{e.style.height='14px';e.style.boxShadow='none'});$('bubble').classList.remove('show');$('mood').textContent='Mood: sleepy ☁️';selectedTab='clothes';document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x.dataset.tab==='clothes'));renderItems();$('note').textContent="Mia's just woken up in her favourite pink pyjamas. Pick a category and make her feel fabulous. ✨"};
+$('save').onclick=()=>{const look={outfit:selected.clothes===undefined?'Sleepy PJs':wardrobe.clothes[selected.clothes].name,hair:selected.hair===undefined?'Curly Brunette':wardrobe.hair[selected.hair].name,beauty:selected.makeup===undefined?'Natural glow':wardrobe.makeup[selected.makeup].name,extras:selected.extras===undefined?'No extra selected':wardrobe.extras[selected.extras].name};const text='My Blush Club look 💗\\n'+Object.entries(look).map(([k,v])=>k+': '+v).join('\\n');const blob=new Blob([text],{type:'text/plain'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='my-blush-club-look.txt';a.click();URL.revokeObjectURL(a.href);$('note').textContent='Your look is saved as a little style note! 💌'};
+renderItems();
 </script>
 </body>
-</html>
+</html>'''
+path = Path("/mnt/data/blush-club-dress-up.html")
+path.write_text(html, encoding="utf-8")
+print(f"Created {path} ({len(html):,} characters)")
